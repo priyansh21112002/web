@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Events Demonstration</title>
+    <style>
+        .event-demo {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        function onMouseOverEvent() {
+            document.getElementById("mouseEventDemo").innerHTML = "Mouse Over Event!";
+        }
+
+        function onMouseOutEvent() {
+            document.getElementById("mouseEventDemo").innerHTML = "Mouse Out Event!";
+        }
+
+        function onMouseClickEvent() {
+            document.getElementById("mouseEventDemo").innerHTML = "Mouse Click Event!";
+        }
+
+        function onDoubleClickEvent() {
+            document.getElementById("mouseEventDemo").innerHTML = "Double Click Event!";
+        }        
+    </script>
+
+</head>
+<body>
+
+    <input id="keyInput" type="text">
+<p id="keyPressed">Key pressed: </p>
+<p id="keyReleased">Key released: </p>
+<p id="charTyped">Character typed: </p>
+
+<script>
+    var keyInput = document.getElementById("keyInput");
+  keyInput.addEventListener("keydown", function(event) {
+    console.log("Key pressed:", event.key);
+    document.getElementById("keyPressed").textContent = "Key pressed: " + event.key;
+  });
+
+  keyInput.addEventListener("keyup", function(event) {
+    console.log("Key released:", event.key);
+    document.getElementById("keyReleased").textContent = "Key released: " + event.key;
+  });
+
+  keyInput.addEventListener("keypress", function(event) {
+    console.log("Character typed:", event.key);
+    document.getElementById("charTyped").textContent = "Character typed: " + event.key;
+  });
+</script>
+
+
+    <h2>Mouse Events</h2>
+    <div class="event-demo" id="mouseEventDemo"
+        onmouseover="onMouseOverEvent();" 
+        onmouseout="onMouseOutEvent();" 
+        onclick="onMouseClickEvent();" 
+        ondblclick="onDoubleClickEvent();">
+        Mouse Events Demo
+    </div>
+   
+</body>
+</html>
